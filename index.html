@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head><base href="./">
+  <meta charset="utf-8">
+  <title>Angular2PromiseButtons</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.36c0ee6ece6ddb67eded.css"></head>
+<body>
+
+<header class="main-header">
+  <a href="https://github.com/johannesjo/angular2-promise-buttons" class="fork-me-badge">
+    <img src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+  </a>
+
+  <div class="container">
+    <h1 class="header">angular2-promise-buttons</h1>
+    <p class="header motto"><i>Chilled Buttons for Angular</i></p>
+
+    <!-- Place this tag where you want the button to render. -->
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/johannesjo/angular2-promise-buttons" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star johannesjo/angular2-promise-buttons on GitHub">Star</a>
+
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/johannesjo/angular2-promise-buttons/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork johannesjo/angular2-promise-buttons on GitHub">Fork</a>
+
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/johannesjo/angular2-promise-buttons/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue johannesjo/angular2-promise-buttons on GitHub">Issue</a>
+  </div>
+</header>
+
+<div class="container">
+  <main>
+    <p align="center"><img src="logo.png"></p>
+          
+<p align="center">
+    <a href="https://badge.fury.io/js/angular2-promise-buttons">
+        <img src="https://camo.githubusercontent.com/5e39de25cca817826da9e93cdce01f16bc499695/68747470733a2f2f62616467652e667572792e696f2f6a732f616e67756c6172322d70726f6d6973652d627574746f6e732e737667"
+             alt="npm version"></a>
+    <a href="https://travis-ci.org/johannesjo/angular2-promise-buttons?branch=master">
+        <img src="https://camo.githubusercontent.com/849a28d2647af8a0fe2a8d47b860d638f5421948/68747470733a2f2f7472617669732d63692e6f72672f6a6f68616e6e65736a6f2f616e67756c6172322d70726f6d6973652d627574746f6e732e737667"
+             alt="Build Status"></a>
+    <a href="https://coveralls.io/github/johannesjo/angular2-promise-buttons?branch=master">
+        <img src="https://camo.githubusercontent.com/80cb53bf16882ebc70866dffd299edfa741b26e9/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6a6f68616e6e65736a6f2f616e67756c6172322d70726f6d6973652d627574746f6e732f62616467652e7376673f6272616e63683d6d6173746572"
+             alt="Coverage Status"></a>
+    <a href="https://lbesson.mit-license.org">
+        <img alt="MIT license"
+             src="https://camo.githubusercontent.com/311762166ef25238116d3cadd22fcb6091edab98/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e737667">
+    </a>
+</p>
+
+
+<p><em>angular2-promise-buttons</em> is a simple module that let&#39;s you add a loading indicator to a button of your choice.  Check out the <a href="http://johannesjo.github.io/angular2-promise-buttons/#demo">demo</a>!</p>
+<p><a href="https://github.com/johannesjo/angular2-promise-buttons/issues">Bug-reports or feature request</a> as well as any other kind of <strong>feedback is highly welcome!</strong></p>
+<h2 id="getting-started">Getting started</h2>
+<p>Install it via npm:</p>
+<pre><code>npm install angular2-promise-buttons -S
+</code></pre>
+<p>And add it as a dependency to your main module</p>
+<pre><code class="language-typescript">import {Angular2PromiseButtonModule} from &#39;angular2-promise-buttons&#39;;
+
+@NgModule({
+  imports: [
+    Angular2PromiseButtonModule.forRoot(),
+  ],
+})
+export class MainAppModule {
+}
+</code></pre>
+<p>Using the buttons is easy. Just pass a promise to the directive:</p>
+<pre><code class="language-html">&lt;button (click)=&quot;someAction()&quot; 
+   [promiseBtn]=&quot;promiseSetBySomeAction&quot;&gt;Click me to spin!&lt;/button&gt;
+</code></pre>
+<pre><code class="language-typescript">export class SomeComponent {
+    // some example async action, but this works with any promise
+    someAction(){
+      this.promiseSetBySomeAction = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 2000);
+      });
+    }
+}
+</code></pre>
+<h2 id="styling-the-button">Styling the button</h2>
+<p>To give you maximum flexibility there are no base styles coming with the directive, but it is easy to fix that! There are lots of free css-spinners out there. Just find one of your liking and add the css to your global stylesheet.</p>
+<p><strong>Ressources:</strong></p>
+<ul>
+<li><a href="http://cssload.net/">http://cssload.net/</a></li>
+<li><a href="http://projects.lukehaas.me/css-loaders/">http://projects.lukehaas.me/css-loaders/</a></li>
+<li><a href="http://tobiasahlin.com/spinkit/">http://tobiasahlin.com/spinkit/</a></li>
+</ul>
+<p>There are selectors you can use to style. There is the <code>.is-loading</code> class on the button, which is set, when the promise is pending and there is the <code>&lt;span class=&quot;btn-spinner&quot;&gt;&lt;/span&gt;</code> element inside the button.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration is done via the forRoot method of the promise button module:</p>
+<pre><code class="language-typescript">import {Angular2PromiseButtonModule} from &#39;angular2-promise-buttons&#39;;
+
+@NgModule({
+  imports: [
+    Angular2PromiseButtonModule
+      .forRoot({
+        // your custom config goes here
+        spinnerTpl: &#39;&lt;span class=&quot;btn-spinner&quot;&gt;&lt;/span&gt;&#39;,
+        // disable buttons when promise is pending
+        disableBtn: true,
+        // the class used to indicate a pending promise
+        btnLoadingClass: &#39;is-loading&#39;,
+        // only disable and show is-loading class for clicked button, 
+        // even when they share the same promise
+        handleCurrentBtnOnly: false,
+      }),
+  ],
+})
+export class MainAppModule {
+}
+</code></pre>
+<h2 id="using-observables">Using observables</h2>
+<p>When you&#39;re using the module with observables make sure to pass a subscription to the directive rather than an observable directly.</p>
+<pre><code class="language-typescript">const FAKE_FACTORY = {
+  initObservable: (): Observable&lt;number&gt; =&gt; {
+    return new Observable(observer =&gt; {
+      setTimeout(() =&gt; {
+        observer.complete();
+      }, 4000);
+    });
+  } 
+};
+
+// DO:
+const observable = FAKE_FACTORY.initObservable();
+this.passedToDirective = observable.subscribe(
+// ...
+);
+  
+// DON&#39;T DO:
+const observable = FAKE_FACTORY.initObservable();
+this.passedToDirective = observable;
+</code></pre>
+<h2 id="using-booleans">Using booleans</h2>
+<p>Is now also possible.</p>
+<pre><code class="language-html">&lt;button (click)=&quot;someAction()&quot; 
+   [promiseBtn]=&quot;isShowBoolean&quot;&gt;Click!&lt;/button&gt;
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>Contribution guidelines: <a href="https://github.com/johannesjo/angular2-promise-buttons/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+
+
+
+    <h2><a name="demo" id="demo"></a>Demo</h2>
+    <app-root>Loading...</app-root>
+  </main>
+</div>
+
+<script async="" defer="" id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+<script src="runtime-es2015.a1ac991fc00ebf39524f.js" type="module"></script><script src="runtime-es5.a1ac991fc00ebf39524f.js" nomodule defer></script><script src="polyfills-es5.cde0f110e5e26503fc68.js" nomodule defer></script><script src="polyfills-es2015.042b619961449428e41b.js" type="module"></script><script src="main-es2015.24270f3b11684bd01395.js" type="module"></script><script src="main-es5.24270f3b11684bd01395.js" nomodule defer></script></body>
+</html>
